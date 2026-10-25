@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Barbie Pink Theme Variables */
+body.barbie-theme {
+  --bg-overlay: rgba(255, 105, 180, 0.45);
+  --calc-bg: rgba(255, 192, 203, 0.75);
+  --card-border: #ffffff;
+  --main-color: #ff1493;
+  --sub-color: #d81b60;
+  --disp-bg: #fff0f5;
+  --disp-border: #ff69b4;
+  --btn-bg: #ffb6c1;
+  --btn-text: #d81b60;
+  --btn-hover: #ff69b4;
+  --btn-op: #ff69b4;
+  --btn-equals: #ff1493;
+  --shadow: rgba(219, 112, 147, 0.5);
+}
+
+/* Dreamy Blue Theme Variables */
+body.blue-theme {
+  --bg-overlay: rgba(100, 149, 237, 0.45);
+  --calc-bg: rgba(173, 216, 230, 0.75);
+  --card-border: #ffffff;
+  --main-color: #007bff;
+  --sub-color: #004085;
+  --disp-bg: #eef7ff;
+  --disp-border: #3399ff;
+  --btn-bg: #b3d8ff;
+  --btn-text: #004085;
+  --btn-hover: #66b2ff;
+  --btn-op: #3399ff;
+  --btn-equals: #007bff;
+  --shadow: rgba(0, 123, 255, 0.4);
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: 
+    linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+    url('bg-math.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 360px;
+  z-index: 10;
+}
+
+/* Banner Header */
+.banner {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  border: 3px solid var(--main-color);
+  padding: 10px 14px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bannerText {
+  color: var(--sub-color);
+  font-weight: bold;
+  font-size: 0.88rem;
+}
+
+#themeToggleBtn {
+  background-color: var(--main-color);
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: transform 0.15s ease;
+}
+
+#themeToggleBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Glassmorphic Calculator Box */
+.calc-box {
+  background: var(--calc-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 24px;
+  border-radius: 30px;
+  box-shadow: 0 12px 35px var(--shadow);
+  width: 100%;
+  border: 4px solid var(--card-border);
+}
+
+.calc-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--main-color);
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+/* Screen Display */
+.display-container {
+  background-color: var(--disp-bg);
+  border-radius: 18px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: right;
+  min-height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid var(--disp-border);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.08);
+}
+
+.expression-text {
+  font-size: 0.95rem;
+  color: var(--sub-color);
+  min-height: 1.2rem;
+  font-weight: bold;
+}
+
+#display {
+  width: 100%;
+  background: transparent;
+  color: var(--main-color);
+  border: none;
+  font-size: 2.2rem;
+  text-align: right;
+  outline: none;
+  font-weight: bold;
+}
+
+/* Keypad Grid */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.calc-btn {
+  padding: 16px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 18px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.calc-btn:hover {
+  background-color: var(--btn-hover);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.03);
+}
+
+.calc-btn:active {
+  transform: translateY(1px);
+}
+
+.btn-op {
+  background-color: var(--btn-op);
+  color: #ffffff;
+}
+
+.btn-clear {
+  background-color: #ff4500;
+  color: #ffffff;
+}
+
+.btn-func {
+  background-color: #ff8c00;
+  color: #ffffff;
+}
+
+.btn-equals {
+  background-color: var(--btn-equals);
+  color: #ffffff;
+  grid-row: span 2;
+  height: 100%;
+  font-size: 1.6rem;
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* Floating Sparkle Animation Elements */
+.sparkle {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.s1 { top: 10%; left: 8%; animation-delay: 0s; }
+.s2 { top: 20%; right: 10%; animation-delay: 1s; }
+.s3 { bottom: 15%; left: 12%; animation-delay: 2s; }
+.s4 { bottom: 10%; right: 8%; animation-delay: 1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(15deg); }
+}
